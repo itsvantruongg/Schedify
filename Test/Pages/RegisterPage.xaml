@@ -1,0 +1,210 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="Test.Pages.RegisterPage"
+             BackgroundColor="WhiteSmoke"
+             Shell.NavBarIsVisible="False"
+             NavigationPage.HasNavigationBar="False">
+
+    <ScrollView>
+        <Grid RowDefinitions="250,*"
+              BackgroundColor="#f5f3ee">
+
+            <!-- ── Header xanh ── -->
+            <Grid Grid.Row="0">
+                <Image Source="Book"
+                    Aspect="AspectFill"
+                    Opacity="1"
+                    HorizontalOptions="Center"
+                       Margin="50"
+                    VerticalOptions="Start"
+                    WidthRequest="150" HeightRequest="100"/>
+            </Grid>
+
+            <!-- ── Card trắng ── -->
+            <Frame Grid.Row="1"
+                   Margin="24,-70,24,24"
+                   Padding="20,30"
+                   BackgroundColor="White"
+                   CornerRadius="22"
+                   HasShadow="True">
+
+                <VerticalStackLayout Spacing="14">
+
+                    <Label Text="SIGN UP"
+                           FontSize="30" FontAttributes="Bold"
+                           TextColor="Black"
+                           HorizontalOptions="Center"
+                           Margin="0,0,0,10"/>
+
+                    <!-- Username -->
+                    <Frame BackgroundColor="#F3F4F6" CornerRadius="12"
+                           Padding="10,4" HasShadow="False" HeightRequest="52">
+                        <Grid ColumnDefinitions="34,*">
+                            <Image Source="user.png"
+                                   WidthRequest="20" HeightRequest="20"
+                                   VerticalOptions="Center"/>
+                            <Entry Grid.Column="1"
+                                   Placeholder="Username"
+                                   PlaceholderColor="#999"
+                                   Text="{Binding Username}"
+                                   BackgroundColor="Transparent"
+                                   ReturnType="Next"
+                                   VerticalOptions="Center"/>
+                        </Grid>
+                    </Frame>
+                    <Label Text="{Binding UsernameError}"
+                           TextColor="#dc2626" FontSize="12"
+                           Margin="4,-8,0,0"
+                           IsVisible="{Binding HasUsernameError}"/>
+
+                    <!-- Display Name -->
+                    <Frame BackgroundColor="#F3F4F6" CornerRadius="12"
+                           Padding="10,4" HasShadow="False" HeightRequest="52">
+                        <Grid ColumnDefinitions="34,*">
+                            <Label Text="🗿" FontSize="20"
+                                   VerticalOptions="Center"
+                                   TextColor="#0284c7"/>
+                            <Entry Grid.Column="1"
+                                   Placeholder="Tên hiển thị"
+                                   PlaceholderColor="#999"
+                                   Text="{Binding DisplayName}"
+                                   BackgroundColor="Transparent"
+                                   ReturnType="Next"
+                                   VerticalOptions="Center"/>
+                        </Grid>
+                    </Frame>
+
+                    <!-- Email -->
+                    <Frame BackgroundColor="#F3F4F6" CornerRadius="12"
+                           Padding="10,4" HasShadow="False" HeightRequest="52">
+                        <Grid ColumnDefinitions="34,*">
+                            <Image Source="mail.png"
+                                   WidthRequest="30" HeightRequest="30"
+                                   VerticalOptions="Center"/>
+                            <Entry Grid.Column="1"
+                                   Placeholder="Email"
+                                   Keyboard="Email"
+                                   Text="{Binding Email}"
+                                   BackgroundColor="Transparent"
+                                   ReturnType="Next"
+                                   VerticalOptions="Center"/>
+                        </Grid>
+                    </Frame>
+                    <Label Text="{Binding EmailError}"
+                           TextColor="#dc2626" FontSize="12"
+                           Margin="4,-8,0,0"
+                           IsVisible="{Binding HasEmailError}"/>
+
+                    <!-- Password -->
+                    <Frame BackgroundColor="#F3F4F6" CornerRadius="12"
+                           Padding="10,4" HasShadow="False" HeightRequest="52">
+                        <Grid ColumnDefinitions="34,*,42">
+                            <Image Source="key.png"
+                                   WidthRequest="20" HeightRequest="20"
+                                   VerticalOptions="Center"/>
+                            <Entry Grid.Column="1"
+                                   Placeholder="Password"
+                                   Text="{Binding Password}"
+                                   IsPassword="{Binding IsPassword}"
+                                   BackgroundColor="Transparent"
+                                   ReturnType="Next"
+                                   VerticalOptions="Center"/>
+                            <Button Grid.Column="2"
+                                    ImageSource="{Binding PasswordIcon}"
+                                    BackgroundColor="Transparent"
+                                    Command="{Binding TogglePasswordCommand}"
+                                    Padding="0" HeightRequest="20" WidthRequest="20"/>
+                        </Grid>
+                    </Frame>
+                    <Label Text="{Binding PasswordError}"
+                           TextColor="#dc2626" FontSize="12"
+                           Margin="4,-8,0,0"
+                           IsVisible="{Binding HasPasswordError}"/>
+
+                    <!-- Confirm Password -->
+                    <Frame BackgroundColor="#F3F4F6" CornerRadius="12"
+                           Padding="10,4" HasShadow="False" HeightRequest="52">
+                        <Grid ColumnDefinitions="34,*,42">
+                            <Image Source="key.png"
+                                   WidthRequest="20" HeightRequest="20"
+                                   VerticalOptions="Center"/>
+                            <Entry Grid.Column="1"
+                                   Placeholder="Confirm Password"
+                                   Text="{Binding ConfirmPassword}"
+                                   IsPassword="{Binding IsConfirmPassword}"
+                                   BackgroundColor="Transparent"
+                                   ReturnType="Done"
+                                   ReturnCommand="{Binding RegisterCommand}"
+                                   VerticalOptions="Center"/>
+                            <Button Grid.Column="2"
+                                    ImageSource="{Binding ConfirmPasswordIcon}"
+                                    BackgroundColor="Transparent"
+                                    Command="{Binding ToggleConfirmPasswordCommand}"
+                                    Padding="0" HeightRequest="20" WidthRequest="20"/>
+                        </Grid>
+                    </Frame>
+                    <Label Text="{Binding ConfirmPasswordError}"
+                           TextColor="#dc2626" FontSize="12"
+                           Margin="4,-8,0,0"
+                           IsVisible="{Binding HasConfirmPasswordError}"/>
+
+                    <!-- Error -->
+                    <Label Text="{Binding ErrorMessage}"
+                           TextColor="#dc2626" FontSize="13"
+                           HorizontalOptions="Center"
+                           IsVisible="{Binding HasError}"/>
+
+                    <!-- Register Button -->
+                    <Button Text="SIGN UP"
+                            BackgroundColor="#0284c7"
+                            TextColor="White"
+                            CornerRadius="26"
+                            HeightRequest="52"
+                            FontAttributes="Bold"
+                            FontSize="18"
+                            Command="{Binding RegisterCommand}"
+                            IsEnabled="{Binding CanRegister}"
+                            Margin="0,4,0,0">
+                        <Button.Triggers>
+                            <DataTrigger TargetType="Button"
+                                         Binding="{Binding CanRegister}"
+                                         Value="False">
+                                <Setter Property="Opacity" Value="0.4"/>
+                            </DataTrigger>
+                            <DataTrigger TargetType="Button"
+                                         Binding="{Binding CanRegister}"
+                                         Value="True">
+                                <Setter Property="Opacity" Value="1.0"/>
+                            </DataTrigger>
+                        </Button.Triggers>
+                    </Button>
+
+                    <ActivityIndicator IsRunning="{Binding IsBusy}"
+                                       IsVisible="{Binding IsBusy}"
+                                       Color="#0284c7"
+                                       HorizontalOptions="Center"/>
+
+                    <!-- Go to Login -->
+                    <HorizontalStackLayout HorizontalOptions="Center"
+                                           Spacing="5" Margin="0,8,0,0">
+                        <Label Text="Already have a account?"
+                               TextColor="Black" FontSize="13"
+                               FontAttributes="Bold"
+                               VerticalOptions="Center"/>
+                        <Label Text="SIGN IN"
+                               TextColor="#0284c7" FontSize="14"
+                               FontAttributes="Bold"
+                               VerticalOptions="Center">
+                            <Label.GestureRecognizers>
+                                <TapGestureRecognizer Command="{Binding GoToLoginCommand}"/>
+                            </Label.GestureRecognizers>
+                        </Label>
+                    </HorizontalStackLayout>
+
+                </VerticalStackLayout>
+            </Frame>
+
+        </Grid>
+    </ScrollView>
+</ContentPage>

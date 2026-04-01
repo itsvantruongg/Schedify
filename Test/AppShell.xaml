@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<Shell xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+       xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+       xmlns:pages="clr-namespace:Test.Pages"
+       x:Class="Test.AppShell"
+       FlyoutBehavior="Disabled"
+       Shell.NavBarIsVisible="False">
+
+    <ShellContent Title="Login"
+                  Route="LoginPage"
+                  Shell.FlyoutItemIsVisible="False"
+                  ContentTemplate="{DataTemplate pages:LoginPage}" />
+
+    <ShellContent Title="Register"
+                  Route="RegisterPage"
+                  Shell.FlyoutItemIsVisible="False"
+                  ContentTemplate="{DataTemplate pages:RegisterPage}" />
+
+    <ShellContent Title="Main"
+                  Route="MainPage"
+                  Shell.FlyoutItemIsVisible="False"
+                  ContentTemplate="{DataTemplate pages:MainPage}" />
+
+</Shell>

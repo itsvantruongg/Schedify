@@ -9,7 +9,7 @@ public class AuthService : IAuthService
     private readonly HttpClient _http;
     private string? _cachedAccessToken;
 
-    private const string BaseUrl = "http://10.0.2.2:5000/api/auth";
+    private const string BaseUrl = "https://schedify-backend-cxio.onrender.com/api/auth"; //http: //10.0.2.2:5000/api/auth
 
     // ── Keys ──────────────────────────────────────────────────
     private const string KeyAccessToken = "access_token";

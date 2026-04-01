@@ -35,6 +35,6 @@ public class AppDbContext : DbContext
 
         m.Entity<Event>()
             .HasIndex(e => new { e.UserId, e.SourceId })
-            .IsUnique().HasFilter("[SourceId] != ''"); // dedup index
+            .IsUnique().HasFilter("`SourceId` != ''"); // dedup index
     }
 }

@@ -34,8 +34,10 @@ builder.Configuration["JwtSettings:Audience"] =
 
 // ── Database ──────────────────────────────────────────────────
 builder.Services.AddDbContext<AppDbContext>(options =>
-    options.UseSqlServer(
-        builder.Configuration.GetConnectionString("DefaultConnection")));
+    options.UseMySql(
+        builder.Configuration.GetConnectionString("DefaultConnection"),
+        ServerVersion.AutoDetect(
+            builder.Configuration.GetConnectionString("DefaultConnection"))));
 
 // ── JWT Authentication ────────────────────────────────────────
 var jwt = builder.Configuration.GetSection("JwtSettings");

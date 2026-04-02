@@ -78,7 +78,8 @@ public class EventsController : ControllerBase
             Period = dto.Period,
             Teacher = dto.Teacher,
             HocKy = dto.HocKy,
-            SourceId = string.Empty
+            SourceId = Guid.NewGuid().ToString() // ← mỗi event có ID unique
+            //SourceId = string.Empty
         };
 
         _db.Events.Add(ev);

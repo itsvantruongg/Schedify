@@ -9,7 +9,7 @@ public class ApiService : IApiService
 {
     private readonly HttpClient _http;
     private readonly IAuthService _auth;
-    private const string Base = "http://10.0.2.2:5000/api";
+    private const string Base = "http://10.0.2.2:5000/api"; 
 
     private static readonly JsonSerializerOptions Opts =
         new() { PropertyNameCaseInsensitive = true };

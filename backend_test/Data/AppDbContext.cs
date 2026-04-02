@@ -33,8 +33,8 @@ public class AppDbContext : DbContext
             .HasOne(e => e.User).WithMany()
             .HasForeignKey(e => e.UserId).OnDelete(DeleteBehavior.NoAction);
 
-        m.Entity<Event>()
-            .HasIndex(e => new { e.UserId, e.SourceId })
-            .IsUnique().HasFilter("`SourceId` != ''"); // dedup index
+        //m.Entity<Event>()
+        //    .HasIndex(e => new { e.UserId, e.SourceId })
+        //    .IsUnique().HasFilter("[SourceId] != ''"); 
     }
 }
